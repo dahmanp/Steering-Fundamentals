@@ -12,9 +12,18 @@ public class Separator : Kinematic
         myMoveType = new Separation();
         myMoveType.character = this;
         Kinematic[] kinematics = GameObject.FindObjectsOfType<Kinematic>();
-        List<Kinematic> kinematicList = new List<Kinematic>(kinematics);
-        kinematicList.Remove(this);
-        myMoveType.targets = kinematicList.ToArray();
+        int count = kinematics.Length - 1;
+        Kinematic[] filteredKinematics = new Kinematic[count];
+        int index = 0;
+        foreach (var k in kinematics)
+        {
+            if (k != this)
+            {
+                filteredKinematics[index] = k;
+                index++;
+            }
+        }
+        myMoveType.targets = filteredKinematics;
 
         myRotateType = new Align();
         myRotateType.character = this;

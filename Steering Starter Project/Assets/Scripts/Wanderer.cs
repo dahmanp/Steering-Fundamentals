@@ -10,7 +10,7 @@ public class Wanderer : Kinematic
     {
         myMoveType = new Wander();
         myMoveType.character = this;
-        myMoveType.target = myTarget;
+        //myMoveType.target = myTarget;
     }
 
     protected override void Update()
